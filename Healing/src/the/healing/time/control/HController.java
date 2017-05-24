@@ -12,17 +12,18 @@ public class HController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String path = (String) req.getParameter("path");
-
-		if (path == null) {
-			req.getSession().setAttribute("include", new String("main"));
+		
+		if (path == null) { // main»≠∏È
+			//req.setAttribute("include", new String("main"));
+			//req.getSession().setAttribute("include", new String("main"));
 			req.getRequestDispatcher("/healing/index.jsp").forward(req, resp);
-			System.out.println(req.getSession().getAttribute("include"));
+			//System.out.println(req.getSession().getAttribute("include"));
 			return;
 		}
-		req.getSession().setAttribute("include", new String(path));
+		req.setAttribute("include", new String(path));
+		//req.getSession().setAttribute("include", new String(path));
 		req.getRequestDispatcher("/healing/index.jsp").forward(req, resp);
-		System.out.println(req.getSession().getAttribute("include"));
+		//System.out.println(req.getSession().getAttribute("include"));
 
 	}
-
 }

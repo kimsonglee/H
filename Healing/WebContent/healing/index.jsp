@@ -60,7 +60,7 @@
 				<li class="nav-item"><a class="nav-link link" href="#">Music</a></li>
 				<li class="nav-item nav-btn"><a
 					class="nav-link btn btn-white btn-white-outline"
-					href="/Healing/index?path=login.jsp">LOGIN</a></li>
+					href="/Healing/index?path=login">LOGIN</a></li>
 			</ul>
 			<button hidden="" class="navbar-toggler navbar-close" type="button"
 				data-toggle="collapse" data-target="#exCollapsingNavbar">
@@ -70,14 +70,35 @@
 
 		<div class="container">
 			<c:choose>
-				<c:when test="${sessionScope.include.equals(\"main\") }">
+				<c:when test="${include.equals(\"main\") }">
 					<jsp:include page="main.jsp" />
 				</c:when>
-				<c:when test="${sessionScope.include.equals(\"coloring\") }">
+				<c:when test="${include.equals(\"coloring\") }">
 					<jsp:include page="coloring.jsp" />
 				</c:when>
-				<c:when test="${sessionScope.include.equals(\"login\") }">
+				<c:when test="${include.equals(\"login\") }">
 					<jsp:include page="login.jsp" />
+				</c:when>
+				<c:when test="${include.equals(\"join\") }">
+					<jsp:include page="join.jsp" />
+				</c:when>
+				<c:when test="${include.equals(\"joincheck\") }">
+					<jsp:include page="joinCheck.jsp" />
+				</c:when>
+				<c:when test="${include.equals(\"anonymous\") }">
+					<jsp:include page="board.jsp" />
+				</c:when>
+				<c:when test="${include.equals(\"recommend\") }">
+					<jsp:include page="board.jsp" />
+				</c:when>
+				<c:when test="${include.equals(\"counseling\") }">
+					<jsp:include page="counseling.jsp" />
+				</c:when>
+				<c:when test="${include.equals(\"testing\") }">
+					<jsp:include page="testing.jsp" />
+				</c:when>
+				<c:when test="${include.equals(\"music\") }">
+					<jsp:include page="music.jsp" />
 				</c:when>
 				<c:otherwise>
 					<jsp:include page="main.jsp" />
@@ -90,15 +111,15 @@
 				<a class="btn btn-lg btn-white btn-white-outline"
 					href="/Healing/index?path=coloring">Coloring</a> <a
 					class="btn btn-lg btn-white btn-white-outline"
-					href="https://mobirise.com">Anonymous</a> <a
+					href="/Healing/index?path=anonymous">Anonymous</a> <a
 					class="btn btn-lg btn-white btn-white-outline"
-					href="https://mobirise.com">Recommend</a> <a
+					href="/Healing/index?path=recommend">Recommend</a> <a
 					class="btn btn-lg btn-white btn-white-outline"
-					href="https://mobirise.com">Counseling</a> <a
+					href="/Healing/index?path=counseling">Counseling</a> <a
 					class="btn btn-lg btn-white btn-white-outline"
-					href="https://mobirise.com">Testing</a> <a
+					href="/Healing/index?path=testing">Testing</a> <a
 					class="btn btn-lg btn-white btn-white-outline"
-					href="https://mobirise.com">Music</a>
+					href="/Healing/index?path=music">Music</a>
 			</div>
 
 		</div>
