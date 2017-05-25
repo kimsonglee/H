@@ -1,13 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd" >
-<sqlMap>
-	<!-- emp.xml -->
-	<select id="selEname" resultClass="String">
-		select ename from emp where empno=7788
+<sqlMap namespace="healing">
+	<typeAlias alias="HBoard" type="thehealing.time.DTO.HBoard" />
+	<insert id="hb_insert" parameterClass="HBoard">
+		insert into hboard
+		(b_no,b_nick,b_contents,b_img,b_hash,b_date,b_key)
+		values(hboard_seq.nextval,#b_nick#,#b_contents#,#b_img#,#b_hash#,sysdate,#b_key#)
+	</insert>
+	<select id="hb_select" resultClass="HBoard">
+		select b_img,b_contents,b_no
+		from hboard
 	</select>
-	
-	<select id="selectAll" resultClass="com.kosta.t0516.dto.Emp2">
-		select empno, ename, hiredate from emp
+	<select id="sb_select" resultClass="HBoard" parameterClass="int">
+		select b_img,b_contents,b_hash,b_nick,b_no from hboard where b_no=#b_no#
 	</select>
+	<select id="tl_select" resultClass="HBoard">
+		select b_img,b_contents,b_no
+		from hboard order by b_date desc
+	</select>
+	<select id="h_search" resultClass="HBoard" parameterClass="String">
+		select b_img,b_contents,b_no from hboard where b_hash like '%$hash$%'
+	</select>
+	<select id="b_edit" resultClass="HBoard" parameterClass="String">
+		select b_img,b_contents,b_hash,b_no from hboard where b_no=#b_no#
+
+	</select>
+	<update id="upBoard" parameterClass="HBoard">
+	    update hboard set b_img=#b_img#,b_contents=#b_contents#,b_hash=#b_hash# where b_no=#b_no#
+	</update>
+	<select id="editCompare" resultClass="HBoard" parameterClass="String">
+	   select b_img,b_contents,b_hash,b_no from hboard where b_nick=#b_nick#
+	</select>
+	<delete id="delBoard" parameterClass="HBoard">
+	    delete from hboard where b_no=#b_no# and b_nick=#b_nick#
+	</delete>
 	
 </sqlMap>

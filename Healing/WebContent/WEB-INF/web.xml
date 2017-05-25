@@ -14,6 +14,11 @@
 		<servlet-name>login</servlet-name>
 		<servlet-class>the.healing.time.control.HController</servlet-class>
 	</servlet>
+	
+		<servlet>
+		<servlet-name>calccontrol</servlet-name>
+		<servlet-class>thehealing.time.control.HealingController</servlet-class>
+	</servlet>
 
 	<!-- ======================================================== -->
 	<!-- 서블릿클래스에 매핑될 가상의 경로 정의(url-pattern) -->
@@ -22,6 +27,11 @@
 	<servlet-mapping>
 		<servlet-name>login</servlet-name>
 		<url-pattern>/index</url-pattern>
+	</servlet-mapping>
+	
+		<servlet-mapping>
+		<servlet-name>calccontrol</servlet-name>
+		<url-pattern>/healing/control</url-pattern>
 	</servlet-mapping>
 
 	<!-- 분단위 세션해제 <session-config> <session-timeout>30</session-timeout> </session-config> -->
