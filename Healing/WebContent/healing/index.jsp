@@ -89,7 +89,7 @@
 					<jsp:include page="board.jsp" />
 				</c:when>
 				<c:when test="${include.equals(\"recommend\") }">
-					<jsp:include page="board.jsp" />
+					<jsp:include page="board2.jsp" />
 				</c:when>
 				<c:when test="${include.equals(\"counseling\") }">
 					<jsp:include page="counseling.jsp" />
